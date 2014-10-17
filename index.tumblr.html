@@ -16,6 +16,7 @@
         <meta name="image:Background" content=""/>
         <meta name="color:Text" content="{AccentColor}"/>
         <meta name="color:Link" content="{AccentColor}"/>
+        <meta name="color:Hover" content="{color:Link}"/>
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -42,7 +43,7 @@ a:focus,
 a:hover,
 .pagination a:focus,
 .pagination a:hover {
-  background: rgba(255, 0, 184, 0.8);
+  background: {color:Hover};
   color: rgb(255, 255, 255);
 }
 
