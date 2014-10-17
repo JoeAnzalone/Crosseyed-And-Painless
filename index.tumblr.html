@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie10 lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="lt-ie10 lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
+    <head>
+        {MobileAppHeaders}
+        <meta charset="utf-8">
+        <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+        {block:Description}
+        <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+        <meta name="viewport" content="width=device-width" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="image:Background" content=""/>
+        <meta name="color:Text" content="{AccentColor}"/>
+        <meta name="color:Link" content="{AccentColor}"/>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,700,300|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+        <link href='//http://static.tumblr.com/m0hgdax/SIzmzytpq/temp.css' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+  margin: 0;
+  background: url('{image:Background}') center #000;
+  background-attachment: fixed;
+  font-family: "Inconsolata", "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+  font-size: 1.3em;
+  color: {color:Text};
+}
+
+a {
+  color: {color:Link};
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+a:focus,
+a:hover,
+.pagination a:focus,
+.pagination a:hover {
+  background: rgba(255, 0, 184, 0.8);
+  color: rgb(255, 255, 255);
+}
+
+#page {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pagination ul {
+  padding: 0;
+}
+
+.pagination li {
+  display: inline-block;
+  list-style: none;
+}
+
+.pagination .previous {
+  float: left;
+}
+
+.pagination .next {
+  float: right;
+}
+
+.pagination a {
+  background: rgba(0, 0, 0, 0.86);
+  padding: 0.5em;
+}
+
+
+#posts article {
+  background: rgba(0, 0, 0, 0.86);
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+figure {
+  margin: 0;
+}
+
+#posts img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.tumblr_video_container,
+#posts iframe {
+  max-width: 100%;
+}
+
+.tags ul {
+  padding: 0;
+}
+
+.post-date {
+    color: {color:Text};
+}
+
+.attribution {
+  font-size: 0.7em;
+}
+
+.attribution ul {
+  margin: 0;
+  padding: 0;
+}
+
+.attribution li {
+  list-style: none;
+  display: inline-block;
+}
+
+.blog-title.content {
+  max-width: 500px;
+  text-align: center;
+  z-index: -10;
+  margin: 0 auto;
+}
+
+.blog-title .avatar-wrapper {
+  margin-bottom: -3em;
+}
+
+.blog-title .avatar-wrapper img {
+    border-radius: 3em;
+}
+
+.blog-title.content a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: "Nunito";
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.86);
+  border: 1px solid #FFF;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
+.description {
+    background: rgba(0, 0, 0, 0.86);
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+header nav ul {
+    padding: 0;
+}
+
+header nav li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 1em;
+}
+
+header nav li:first-child {
+    margin-left: 0;
+}
+
+header nav li:last-child {
+    margin-right: 0;
+}
+
+.tags li {
+  list-style: none;
+  display: inline-block;
+}
+
+.tags a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.tags a:before {
+  content: '#';
+}
+
+.post-footer li {
+  list-style: none;
+}
+
+.post-footer a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8em;
+}
+
+blockquote {
+    border-left: 2px solid;
+    padding-left: 1em;
+}
+</style>
+    </head>
+    <body data-urlencoded-name="{URLEncodedName}" class="{select:Layout}{block:IndexPage} index-page{/block:IndexPage}{block:PermalinkPage} permalink{/block:PermalinkPage}{block:SearchPage} search-page{block:NoSearchResults} no-results{/block:NoSearchResults}{/block:SearchPage}">
+        <section id="page">
+            <div class="header-wrapper
+                {block:IfNotShowTitle}{block:IfNotShowDescription}no-title-desc {/block:IfNotShowDescription}{/block:IfNotShowTitle}
+                {block:IfNotShowHeaderImage}no-image {/block:IfNotShowHeaderImage}
+                {block:IfShowHeaderImage}{block:IfNotHeaderImage}no-image {/block:IfNotHeaderImage}{/block:IfShowHeaderImage}
+                avatar-style-{select:Avatar style}">
+
+                <header id="header">
+                    {block:IfShowHeaderImage}{block:IfHeaderImage}
+                    <div class="header-image-wrapper">
+                        <a href="/" class="header-image {block:IfSlidingHeader}parallax{/block:IfSlidingHeader} {block:IfStretchHeaderImage}cover{/block:IfStretchHeaderImage}" data-bg-image="{HeaderImage}"></a>
+                    </div>
+                    {/block:IfHeaderImage}{/block:IfShowHeaderImage}
+
+                    <div class="blog-title content">
+                        <figure class="avatar-wrapper">
+                            <img src="{PortraitURL-128}" alt="">
+                        </figure>
+
+                        <h1><a href="/">{Title}</a></h1>
+                    </div>
+                    <div class="description">
+                        {Description}
+                        <nav class="main-n">
+                            <ul>
+                              {block:HasPages}
+                                {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+                              {/block:HasPages}
+                            </ul>
+                        </nav>
+                    </div>
+                    {block:IfNotCollapseNavigation}
+                    <div class="{block:IfNotShowTitle}{block:IfNotShowDescription}no-title-desc{/block:IfNotShowDescription}{/block:IfNotShowTitle} exposed-nav-wrapper content">
+                        <div class="h-line"></div>
+                        <nav class="nav-menu">
+                            <ul>
+                                <li>
+                                    <a href="/archive">{lang:Archive}</a>
+                                </li>
+                                {block:AskEnabled}
+                                    <li>
+                                        <a href="/ask" class="ask">{AskLabel}</a>
+                                    </li>
+                                {/block:AskEnabled}
+                                {block:HasPages}
+                                    {block:Pages}
+                                    <li>
+                                        <a href="{URL}" class="page">{Label}</a>
+                                    </li>
+                                    {/block:Pages}
+                                {/block:HasPages}
+                                {block:SubmissionsEnabled}
+                                    <li>
+                                        <a href="/submit" class="submit">{SubmitLabel}</a>
+                                    </li>
+                                {/block:SubmissionsEnabled}
+                            </ul>
+                        </nav>
+                    </div>
+                    {/block:IfNotCollapseNavigation}
+
+                    <div class="back-to-top"><a class="top" href="#"></a></div>
+                </header>
+            </div>
+            {block:SearchPage}
+                <div class="search-header content">
+                    <h2>
+                        {lang:SearchResultCount results for SearchQuery}
+                        {block:NoSearchResults}{lang:Sorry no search results found}{/block:NoSearchResults}
+                    </h2>
+                </div>
+            {/block:SearchPage}
+            <section id="posts" class="content {block:IfNotShowTitle}{block:IfNotShowDescription}no-title-desc {/block:IfNotShowDescription}{/block:IfNotShowTitle}{block:IfNotShowHeaderImage}no-image {/block:IfNotShowHeaderImage} avatar-style-{select:Avatar style}">
+
+                <div data-page-id="{CurrentPage}">
+                    {block:Posts}
+                            <article class="{block:Text}text {/block:Text}{block:Photoset}photoset {/block:Photoset}{block:Photo}photo {/block:Photo}{block:RebloggedFrom}reblogged {/block:RebloggedFrom}{block:Quote}quote {/block:Quote}{block:Link}link {/block:Link}{block:Chat}chat {/block:Chat}{block:Audio}audio {/block:Audio}{block:Video}video {/block:Video}{block:Answer}answer {/block:Answer}{block:Date}not-page post-{PostID}{/block:Date} {block:PermalinkPage} active exposed{/block:PermalinkPage}" {block:Date}data-post-id="post_{PostID}"{/block:Date}>
+                                <div class="post-wrapper">
+                                    <section class="post">
+                                        {block:Text}
+                                            {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+                                            {block:Body}
+                                            <div class="body-text">
+                                                {Body}
+                                            </div>
+                                            {/block:Body}
+                                        {/block:Text}
+
+                                        {block:Photo}
+                                        <figure class="{block:HighRes}high-res{/block:HighRes}{block:Caption} with-caption{/block:Caption}" data-photo-width="{PhotoWidth-HighRes}">
+                                            <div class="photo-wrapper">
+                                                <div class="photo-wrapper-inner">
+                                                    {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="{PhotoWidth-HighRes}" height="{PhotoHeight-HighRes}">{LinkCloseTag}
+                                                </div>
+                                            </div>
+                                            {block:Caption}
+                                            <figcaption class="caption">
+                                                {Caption}
+                                            </figcaption>
+                                            {/block:Caption}
+                                        </figure>
+                                        {/block:Photo}
+
+                                        {block:Photoset}
+                                        <figure class="photoset {block:Caption}with-caption{/block:Caption}">
+                                            {Photoset}
+                                            {block:Caption}
+                                            <figcaption class="caption">
+                                                {Caption}
+                                            </figcaption>
+                                            {/block:Caption}
+                                        </figure>
+                                        {/block:Photoset}
+
+                                        {block:Quote}
+                                        <blockquote class="{Length}">
+                                            {Quote}
+                                        </blockquote>
+                                        {block:Source}
+                                        <div class="source">{Source}</div>
+                                        {/block:Source}
+                                        {/block:Quote}
+
+
+                                        {block:Link}
+                                        <div class="link-wrapper">
+                                            <h2><a {Target} href="{URL}">{Name}</a></h2>
+                                        </div>
+                                        {block:Description}
+                                        <div class="caption">
+                                            {Description}
+                                        </div>
+                                        {/block:Description}
+                                        {/block:Link}
+
+
+                                        {block:Chat}
+                                        {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+                                            <ul class="conversation">
+                                            {block:Lines}
+                                                <li class="chat-{Alt}">{block:Label}<span class="label">{Label}</span>{/block:Label} {Line}</li>
+                                            {/block:Lines}
+                                            </ul>
+                                        {/block:Chat}
+
+
+                                        {block:Audio}
+                                        <div class="audio_container">
+                                            {block:AudioEmbed}
+                                                {AudioEmbed color="white"}
+                                            {/block:AudioEmbed}
+                                        </div>
+                                        {block:Caption}
+                                        <div class="caption">
+                                            {Caption}
+                                        </div>
+                                        {/block:Caption}
+                                        {/block:Audio}
+
+
+                                        {block:Video}
+                                        <figure {block:Caption}class="with-caption"{/block:Caption}>
+                                            <div class="video-wrapper">
+                                                {Video-700}
+                                            </div>
+                                            {block:Caption}
+                                            <figcaption class="caption">
+                                                {Caption}
+                                            </figcaption>
+                                            {/block:Caption}
+                                        </figure>
+                                        {/block:Video}
+
+                                        {block:Answer}
+                                        <div class="note-item note-item-asker">
+                                            <div class="text">
+                                                <p class="asker"><strong>{Asker}</strong> asked:</p>
+                                                <div class="asker-question">
+                                                    {Question}
+                                                </div>
+                                            </div>
+                                            <div class="avatar">
+                                                <img class="asker-avatar" src="{AskerPortraitURL-96}" alt="">
+                                            </div>
+                                        </div>
+
+                                        {block:Answerer}
+                                        <div class="note-item note-item-answerer">
+                                            <div class="text">
+                                                <p class="answerer"><strong>{Answerer}</strong> answered:</p>
+                                                <div class="answerer-answer">
+                                                    {Answer}
+                                                </div>
+                                            </div>
+                                            <div class="avatar">
+                                                <img class="answerer-avatar" src="{AnswererPortraitURL-96}" alt="">
+                                            </div>
+                                        </div>
+                                        {/block:Answerer}
+
+                                        <div class="replies">
+                                            {Replies}
+                                        </div>
+                                        {/block:Answer}
+
+
+
+                                        {block:PermalinkPage}
+                                            {block:PostNotes}
+                                            <section id="notes" class="notes-wrapper">
+                                                {PostNotes-64}
+                                            </section>
+                                            {/block:PostNotes}
+                                        {/block:PermalinkPage}
+
+
+                                        <section class="tags">
+                                            <ul>
+                                                {block:HasTags}
+                                                    {block:Tags}
+                                                        <li>
+                                                            <a href="{TagURL}" class="tag">{Tag}</a>
+                                                        </li>
+                                                    {/block:Tags}
+                                                {/block:HasTags}
+                                            </ul>
+                                        </section>
+
+                                        {block:NotReblog}
+                                            {block:HasTags}
+                                            <section class="tags">
+                                                <ul>
+                                                    {block:ContentSource}
+                                                    <li>
+                                                        <a class="source-link" href="{SourceURL}">{lang:Source}: {SourceTitle}</a>
+                                                    </li>
+                                                    {/block:ContentSource}
+                                                </ul>
+                                            </section>
+                                            {/block:HasTags}
+                                        {/block:NotReblog}
+
+                                        {block:Date}
+                                            <section class="meta">
+                                            Posted <a href="{Permalink}" class="post-date" title="{ShortMonth} {DayOfMonth}{DayOfMonthSuffix}, {Year}">{TimeAgo}</a>
+                                            {block:NoteCount}with <a class="note-count" href="{Permalink}">{NoteCountWithLabel}</a>{/block:NoteCount}
+                                            </section>
+                                        {/block:Date}
+
+                                        <section class="attribution">
+                                            <ul>
+                                        {block:RebloggedFrom}
+                                            <li class="reblog-link">
+                                                Courtesy of <a href="{ReblogParentURL}">{ReblogParentName}</a> &raquo;
+                                            </li>
+                                            {block:ContentSource}
+                                            <li class="source-link">
+                                                <a href="{SourceURL}">{lang:Source}: {SourceTitle}</a>
+                                            </li>
+                                            {/block:ContentSource}
+                                        {/block:RebloggedFrom}
+                                            <ul>
+                                        </section>
+
+                                    </section>
+                                </div>
+                            </article>
+                    {/block:Posts}
+                </div>
+            </section>
+            <footer id="footer" class="content">
+                {block:IndexPage}
+                    {block:Pagination}
+                    <nav class="pagination" data-current-page="{CurrentPage}" data-total-pages="{TotalPages}">
+                        <ul>
+                        {block:PreviousPage}
+                        <li class="previous"><a href="{PreviousPage}">&lang; {lang:Previous}</a></li>
+                        {/block:PreviousPage}
+                        {block:NextPage}
+                        <li class="next"><a href="{NextPage}">{lang:Next} &rang;</a></li>
+                        {/block:NextPage}
+                        </ul>
+                    </nav>
+                    {/block:Pagination}
+                {/block:IndexPage}
+            </footer>
+        </section>
+    </body>
+</html>
