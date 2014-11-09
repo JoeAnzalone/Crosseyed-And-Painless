@@ -17,6 +17,7 @@
         <meta name="color:Text" content="{AccentColor}"/>
         <meta name="color:Link" content="{AccentColor}"/>
         <meta name="color:Hover" content="{color:Link}"/>
+        <meta name="text:Google Analytics ID" content=""/>
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -485,5 +486,16 @@ blockquote {
                 {/block:IndexPage}
             </footer>
         </section>
+        {Block:IfGoogleAnalyticsID}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', '{Google Analytics ID}', 'auto');
+          ga('send', 'pageview');
+        </script>
+        {/Block:IfGoogleAnalyticsID}
     </body>
 </html>
