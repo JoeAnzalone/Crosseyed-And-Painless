@@ -406,17 +406,6 @@ blockquote {
                                         </div>
                                         {/block:Answer}
 
-
-
-                                        {block:PermalinkPage}
-                                            {block:PostNotes}
-                                            <section id="notes" class="notes-wrapper">
-                                                {PostNotes-64}
-                                            </section>
-                                            {/block:PostNotes}
-                                        {/block:PermalinkPage}
-
-
                                         <section class="tags">
                                             <ul>
                                                 {block:HasTags}
@@ -464,6 +453,14 @@ blockquote {
                                         {/block:RebloggedFrom}
                                             <ul>
                                         </section>
+
+                                        {block:PermalinkPage}
+                                            {block:PostNotes}
+                                            <section id="notes" class="notes-wrapper">
+                                                {PostNotes-64}
+                                            </section>
+                                            {/block:PostNotes}
+                                        {/block:PermalinkPage}
 
                                     </section>
                                 </div>
